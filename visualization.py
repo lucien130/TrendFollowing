@@ -6,8 +6,9 @@ logger = logging.getLogger(__name__)
 
 def plot_portfolio_vs_buy_and_hold(dates, portfolio_values, price_series, ticker, log_scale=False):
     """
-    Trace l'évolution du portefeuille comparée à une stratégie buy & hold.
-    Possibilité d'afficher en échelle logarithmique et d'ajouter des annotations pour les entrées/sorties.
+    Plots the portfolio performance compared to a buy & hold strategy.  
+    - Option to display in logarithmic scale.  
+    - Can include annotations for entry and exit points.
     """
     try:
         # Si 'dates' est un DatetimeIndex, utilisez-le directement par indexation
@@ -39,7 +40,7 @@ def plot_portfolio_vs_buy_and_hold(dates, portfolio_values, price_series, ticker
 
 def plot_daily_returns_histogram(daily_returns, ticker):
     """
-    Affiche un histogramme des rendements journaliers.
+    Display an histogram of daily returns.
     """
     try:
         plt.figure(figsize=(10, 6))
@@ -54,7 +55,7 @@ def plot_daily_returns_histogram(daily_returns, ticker):
 
 def plot_drawdown(drawdown_series, ticker):
     """
-    Affiche le drawdown maximal sous forme de graphique.
+    Display the maximum drawdown on a graph.
     """
     try:
         plt.figure(figsize=(10, 6))
