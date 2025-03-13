@@ -9,7 +9,7 @@ from strategy import AdvancedMeanReversionStrategy
 logger = logging.getLogger(__name__)
 
 def run_single_optimization(args):
-    """Fonction pour exécuter un backtest avec un ensemble de paramètres donné."""
+    """Function to execute a backtest with a given set of parameters."""
     ticker, start_date, end_date, cash, sma_period, bb_dev = args
     cerebro = bt.Cerebro()
     cerebro.broker.setcash(cash)
@@ -39,12 +39,13 @@ def run_single_optimization(args):
 
 def run_optimization(ticker="AAPL", start_date="2018-01-01", end_date="2023-01-01", cash=100000):
     """
-    Optimise via Grid Search les hyperparamètres :
-      - sma_period : [10, 20, 50]
-      - bb_dev : [1.5, 2.0, 2.5]
-    Utilise multiprocessing pour paralléliser les tests, en limitant le nombre de processus.
-    Sauvegarde automatiquement les résultats dans un fichier CSV avec un timestamp.
-    Retourne la meilleure configuration selon un score combiné (total_return/drawdown).
+    Optimizes hyperparameters via Grid Search:  
+      - `sma_period`: [10, 20, 50]  
+      - `bb_dev`: [1.5, 2.0, 2.5]  
+
+    Uses multiprocessing to parallelize tests while limiting the number of processes.  
+    Automatically saves results in a CSV file with a timestamp.  
+    Returns the best configuration based on a combined score (`total_return/drawdown`).
     """
     param_grid = [(ticker, start_date, end_date, cash, sma, bb) for sma in [10, 20, 50] for bb in [1.5, 2.0, 2.5]]
     num_processes = max(mp.cpu_count() // 2, 1)
