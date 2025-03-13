@@ -14,22 +14,22 @@ if not os.path.exists(CACHE_DIR):
     os.makedirs(CACHE_DIR)
 
 def get_cache_path(ticker: str, start_date: str, end_date: str) -> str:
-    """Renvoie le chemin du fichier cache correspondant aux paramètres."""
+    """Returns the cache file path corresponding to the given parameters."""
     filename = f"{ticker}_{start_date}_{end_date}.pkl"
     return os.path.join(CACHE_DIR, filename)
 
 def fetch_data(ticker: str, start_date: str, end_date: str, force_refresh: bool = False, cache_days: int = 1) -> pd.DataFrame:
     """
-    Télécharge ou charge en cache les données historiques d'un ticker via Yahoo Finance.
-    
-    Paramètres :
-      - ticker : symbole de l'action ou de l'ETF (ex : "AAPL")
-      - start_date, end_date : dates au format "YYYY-MM-DD"
-      - force_refresh : si True, force le rechargement des données en supprimant le cache existant
-      - cache_days : durée de validité du cache en jours (par défaut 1 jour)
-      
-    Retourne :
-      - DataFrame avec les colonnes ['Close', 'High', 'Low', 'Open', 'Volume'] correctement formatées.
+    Downloads or loads cached historical data for a given ticker from Yahoo Finance.
+
+    ### Parameters:
+    - ticker: Stock or ETF symbol (e.g., "AAPL").
+    - start_date, end_date: Date range in "YYYY-MM-DD" format.
+    - *orce_refresh: If `True`, forces data reload by deleting the existing cache.
+    - cache_days: Validity period of the cache in days (default: 1 day).
+
+    ### Returns:
+    - A DataFrame with properly formatted columns: `['Close', 'High', 'Low', 'Open', 'Volume']`.
     """
     try:
         start_date = pd.to_datetime(start_date).strftime("%Y-%m-%d")
