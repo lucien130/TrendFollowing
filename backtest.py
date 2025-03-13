@@ -16,10 +16,10 @@ logger = logging.getLogger(__name__)
 
 def run_backtest_for_ticker(ticker, start_date, end_date, cash=100000):
     """
-    Exécute le backtest pour un ticker donné et génère les graphiques ainsi qu'un rapport PDF.
-    - Utilise les analyzers SharpeRatio, DrawDown et TimeReturn pour récupérer des métriques précises.
-    - Calcule les retours journaliers via (1 + returns).cumprod() pour une performance cumulative correcte.
-    - Ajoute une colonne "Rendement Net (%)" qui prend en compte les commissions.
+    Executes the backtest for a given ticker and generates charts along with a PDF report.  
+    - Uses the SharpeRatio, DrawDown, and TimeReturn analyzers to retrieve precise metrics.  
+    - Calculates daily returns using (1 + returns).cumprod() for accurate cumulative performance.  
+    - Adds a "Net Return (%)" column that accounts for commissions.
     """
     cerebro = bt.Cerebro()
     cerebro.broker.setcash(cash)
@@ -71,7 +71,7 @@ def run_backtest_for_ticker(ticker, start_date, end_date, cash=100000):
 
 def run_multi_asset_backtest(tickers, start_date="2018-01-01", end_date="2023-01-01", cash=100000):
     """
-    Exécute le backtest sur plusieurs actifs et retourne un rapport de performance par ticker.
+    Runs the backtest on multiple assets and returns a performance report for each ticker.
     """
     all_metrics = {}
     for ticker in tickers:
