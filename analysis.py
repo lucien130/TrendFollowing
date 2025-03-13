@@ -7,8 +7,8 @@ logger = logging.getLogger(__name__)
 
 def calculate_sharpe_ratio(returns, risk_free_rate=0.0):
     """
-    Calcule le ratio de Sharpe à partir des retours journaliers réels.
-    Si la volatilité est nulle, retourne 0.0 pour éviter une division par zéro.
+    Calculate the Sharpe ratio from actual daily returns.
+    If volatility is zero, return 0.0 to avoid division by zero.
     """
     excess_returns = returns - risk_free_rate
     std = np.std(excess_returns)
@@ -18,19 +18,19 @@ def calculate_sharpe_ratio(returns, risk_free_rate=0.0):
 
 def perform_statistical_test(returns):
     """
-    Effectue un test de Student pour vérifier si la moyenne des retours journaliers est significativement différente de zéro.
+    Performs a Student's t-test to check if the mean of daily returns is significantly different from zero.
     """
     t_stat, p_value = stats.ttest_1samp(returns, 0.0)
     return t_stat, p_value
 
 def analyze_performance(cerebro, strat, ticker, sharpe_analysis, drawdown_analysis):
     """
-    Calcule et retourne plusieurs indicateurs de performance :
-      - Rendement total (%)
-      - Ratio de Sharpe basé sur les retours réels
-      - Drawdown maximum (%)
-      - Nombre de trades effectués
-      - Test statistique sur les retours journaliers
+    Calculates and returns multiple performance indicators:
+    - Total return (%)
+    - Sharpe ratio based on actual returns
+    - Maximum drawdown (%)
+    - Number of trades executed
+    - Statistical test on daily returns
     """
     starting_value = cerebro.broker.startingcash
     ending_value = cerebro.broker.getvalue()
