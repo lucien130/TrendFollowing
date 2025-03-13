@@ -1,2 +1,2 @@
 # TrendFollowing
-rend-following trading strategy implemented with Backtrader
+Trend-following trading strategy implemented with Backtrader
