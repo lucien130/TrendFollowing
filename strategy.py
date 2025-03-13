@@ -5,12 +5,12 @@ logger = logging.getLogger(__name__)
 
 class TrendFollowingStrategy(bt.Strategy):
     params = (
-        ('fast_ma_period', 20),           # Période de la moyenne mobile rapide
-        ('slow_ma_period', 50),           # Période de la moyenne mobile lente
-        ('risk_per_trade', 0.02),         # Fraction du portefeuille à risquer par trade
-        ('atr_period', 14),               # Période pour le calcul de l'ATR
+        ('fast_ma_period', 12),           # Période de la moyenne mobile rapide
+        ('slow_ma_period', 25),           # Période de la moyenne mobile lente
+        ('risk_per_trade', 0.03),         # Fraction du portefeuille à risquer par trade
+        ('atr_period', 10),               # Période pour le calcul de l'ATR
         ('atr_smooth_period', 3),         # Période pour lisser l'ATR
-        ('trailing_stop_multiplier', 2.0),# Multiplicateur pour le trailing stop basé sur l'ATR
+        ('trailing_stop_multiplier', 2.2),# Multiplicateur pour le trailing stop basé sur l'ATR
         ('min_stop_loss', 0.5),           # Stop-loss minimum
         ('commission', 0.001),            # Commission (0.1%)
     )
