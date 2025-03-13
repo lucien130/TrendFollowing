@@ -4,7 +4,7 @@ import multiprocessing as mp
 import csv
 import datetime
 from data_loader import fetch_data
-from strategy import AdvancedMeanReversionStrategy
+from strategy import TrendFollowingStrategy
 
 logger = logging.getLogger(__name__)
 
@@ -14,7 +14,7 @@ def run_single_optimization(args):
     cerebro = bt.Cerebro()
     cerebro.broker.setcash(cash)
     cerebro.optstrategy(
-        AdvancedMeanReversionStrategy,
+        TrendFollowingStrategy,
         sma_period=[sma_period],
         bb_dev=[bb_dev]
     )
