@@ -1,2 +1,2 @@
 # TrendFollowing
-Trend Following Backtest Trading Algorithm
+rend-following trading strategy implemented with Backtrader
