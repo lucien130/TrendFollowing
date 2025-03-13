@@ -17,10 +17,10 @@ class PDFReport(FPDF):
 
 def generate_pdf_report(strategy_metrics, ticker, output_file="report.pdf"):
     """
-    Génère un rapport PDF résumant les indicateurs de performance et intégrant des graphiques.
-    - Affiche les métriques dans un tableau.
-    - Intègre le graphique de performance si disponible.
-    Le rapport est sauvegardé dans le dossier "reports".
+    Generates a PDF report summarizing performance indicators and integrating charts.  
+    - Displays key metrics in a table.  
+    - Includes the performance chart if available.  
+    - The report is saved in the "reports" folder.
     """
     try:
         # Création du dossier "reports" s'il n'existe pas
